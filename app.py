@@ -6,7 +6,6 @@ import geopandas as gpd
 
 orders_item_df = pd.read_csv("Data/order_items_dataset.csv")
 customer_df = pd.read_csv("Data/customers_dataset.csv")
-geolocations_df = pd.read_csv("Data/geolocation_dataset.csv")
 
 orders_item_df['shipping_limit_date'] = pd.to_datetime(orders_item_df['shipping_limit_date'])
 orders_item_df['year'] = orders_item_df['shipping_limit_date'].dt.year
@@ -57,21 +56,6 @@ ax2.set_xlabel("Tahun")
 ax2.set_ylabel("Total Revenue")
 ax2.set_xticks(yearly_revenue.index)
 st.pyplot(fig2)
-
-
-
-geo_sample = geolocations_df.sample(5000)
-# buat geometry
-geometry = [Point(xy) for xy in zip(geo_sample['geolocation_lng'], geo_sample['geolocation_lat'])]
-gdf = gpd.GeoDataFrame(geo_sample, geometry=geometry)
-gdf.set_crs(epsg=4326, inplace=True)
-
-# plot
-fig, ax = plt.subplots()
-gdf.plot(ax=ax, markersize=2)
-ax.set_title("Distribusi Lokasi Customer")
-st.pyplot(fig)
-
 
 st.subheader("💡 Insight Lokasi")
 st.write("Mayoritas customer terkonsentrasi pada wilayah tertentu (cluster terlihat jelas).")
