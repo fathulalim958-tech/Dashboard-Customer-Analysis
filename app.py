@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from shapely.geometry import Point
 import geopandas as gpd
 
-orders_item_df = pd.read_csv("Data/order_items_dataset.csv")
-customer_df = pd.read_csv("Data/customers_dataset.csv")
+orders_item_df = pd.read_csv("order_items_dataset.csv")
+customer_df = pd.read_csv("customers_dataset.csv")
 
 orders_item_df['shipping_limit_date'] = pd.to_datetime(orders_item_df['shipping_limit_date'])
 orders_item_df['year'] = orders_item_df['shipping_limit_date'].dt.year
