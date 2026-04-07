@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from shapely.geometry import Point
 
 orders_item_df = pd.read_csv("order_items_dataset.csv")
 customer_df = pd.read_csv("customers_dataset.csv")
