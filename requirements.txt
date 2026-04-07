@@ -1,4 +1,4 @@
 streamlit
 pandas
 matplotlib
-from shapely.geometry import Point
+from shapely.geometry
