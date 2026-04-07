@@ -59,16 +59,7 @@ st.subheader("💡 Insight Lokasi")
 st.write("Mayoritas customer terkonsentrasi pada wilayah tertentu (cluster terlihat jelas).")
 st.write("Terdapat beberapa titik outlier yang kemungkinan merupakan data tidak valid.")
 
-
-st.subheader("🌍 Distribusi Geolocation per State")
-geo_state_summary = geolocations_df.groupby('geolocation_state').agg(
-    total_point=('geolocation_zip_code_prefix', 'count'),
-    unique_zip=('geolocation_zip_code_prefix', 'nunique')
-).sort_values(by='total_point', ascending=False)
-top_state = geo_state_summary.head(10)
-
 st.subheader("🧠 Insight Otomatis")
-
 total_customers = customer_df.shape[0]
 top_city = customer_df['customer_city'].value_counts().idxmax()
 top_state = customer_df['customer_state'].value_counts().idxmax()
