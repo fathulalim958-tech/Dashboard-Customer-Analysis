@@ -55,9 +55,6 @@ ax2.set_ylabel("Total Revenue")
 ax2.set_xticks(yearly_revenue.index)
 st.pyplot(fig2)
 
-st.subheader("💡 Insight Lokasi")
-st.write("Mayoritas customer terkonsentrasi pada wilayah tertentu (cluster terlihat jelas).")
-st.write("Terdapat beberapa titik outlier yang kemungkinan merupakan data tidak valid.")
 
 st.subheader("🧠 Insight Otomatis")
 total_customers = customer_df.shape[0]
